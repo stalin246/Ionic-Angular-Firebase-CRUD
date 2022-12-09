@@ -1,0 +1,7 @@
+{
+  "name": "appGpsnow",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
