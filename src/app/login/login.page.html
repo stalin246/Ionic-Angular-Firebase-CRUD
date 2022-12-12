@@ -1,0 +1,31 @@
+
+<ion-header>
+	<ion-toolbar color="primary">
+		<ion-title>Registrate</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+	<div class="contenido">
+		<div class="avatar" style="background-image: url(  https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Ionic_Logo.svg/1280px-Ionic_Logo.svg.png
+		)"></div>
+		<hr>
+	<form (ngSubmit)="login()" [formGroup]="credentials">
+		<ion-item fill="solid" class="ion-margin-bottom">
+			<ion-input type="email" placeholder="Email" formControlName="email"></ion-input>
+			<ion-note slot="error" *ngIf="(email.dirty || email.touched) && email.errors"
+				>Email is invalid</ion-note
+			>
+		</ion-item>
+		<ion-item fill="solid" class="ion-margin-bottom">
+			<ion-input type="password" placeholder="Password" formControlName="password"></ion-input>
+			<ion-note slot="error" *ngIf="(password.dirty || password.touched) && password.errors"
+				>Password needs to be 6 characters</ion-note
+			>
+		</ion-item>
+
+		<ion-button type="submit" expand="block" [disabled]="!credentials.valid">Log in</ion-button>
+		
+	</form>
+</div>
+</ion-content>
