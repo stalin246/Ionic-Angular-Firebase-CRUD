@@ -1,13 +1,14 @@
 export const environment = {
   firebase: {
-  apiKey: "AIzaSyDExC2r_XHZEh2yIJMW_ZTwJ4GSDwaF8YE",
-  authDomain: "appmoviles-ba56c.firebaseapp.com",
-  databaseURL: "https://appmoviles-ba56c-default-rtdb.firebaseio.com",
-  projectId: "appmoviles-ba56c",
-  storageBucket: "appchat-70aaf.appspot.com",
-  messagingSenderId: "280514763133",
-  appId: "1:280514763133:web:f3e99168c0010958b91414",
-  measurementId: "G-VRLX3YR907"
+    projectId: 'crud-45925',
+    appId: '1:226537253096:web:bd3b66f3e75cae495b015d',
+    databaseURL: 'https://crud-45925-default-rtdb.firebaseio.com',
+    storageBucket: 'crud-45925.appspot.com',
+    locationId: 'us-central',
+    apiKey: 'AIzaSyBBNcxm5FzWGIPn8Io6N8JVEhKeXSPM4PM',
+    authDomain: 'crud-45925.firebaseapp.com',
+    messagingSenderId: '226537253096',
+    measurementId: 'G-Z7W1Z3NC6W',
   },
   production: true,
   mapskey: "AIzaSyDvlFYsuoV0T64Nt4yEi0aPVP1QjLDVsvU"

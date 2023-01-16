@@ -1,60 +1,43 @@
 <ion-header>
-    <ion-toolbar color="primary">
-        <ion-title>Censo</ion-title>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-button (click)="logout()">
+                <ion-icon slot="icon-only" name="log-out"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+      <ion-title>Lista de libros</ion-title>
     </ion-toolbar>
-</ion-header>
-<ion-content class="ion-padding">
-<ion-grid [fixed]="true">
-    <hr>
-    <ion-button (click)="nuevoRegistro()">Agregar Registro</ion-button>
-    
-    <hr>
-    <hr>
-    
-    
-    
-    <hr>
-    <hr>
-    <ion-row class="header-row" >
-        <ion-col id="fondo" size="1.3">Nombre</ion-col>
-        <ion-col id="fondo" size="1.3">Apellido</ion-col>
-        <ion-col id="fondo" size="1.3" >Numero de Cédula</ion-col>
-        <ion-col id="fondo" size="1.3" >Familiares </ion-col>
-        <ion-col id="fondo" size="1.3" >Latitud</ion-col>
-        <ion-col id="fondo" size="1.3" >longitud</ion-col>
-        <ion-col id="fondo" size="1.3" >Usuario</ion-col>
-        <ion-col id="fondo" size="1.3" >Fecha</ion-col>
-        <ion-col id="fondo" size="1.3" >Borrar</ion-col>
 
-    </ion-row>
-    <hr>
-    <ion-row *ngFor="let info of data" class="header-row">
-        <ion-col size="1.3">{{info.name}}</ion-col>
-        <ion-col size="1.3">{{info.lastname}}</ion-col>
-        <ion-col size="1.3">{{info.cedula}}</ion-col>
-        <ion-col size="1.3">{{info.number}}</ion-col>
-        <ion-col size="1.3">{{info.lat}}</ion-col>
-        <ion-col size="1.3">{{info.lng}}</ion-col>
-         <ion-col size="1.3">{{info.user}}</ion-col>
-        <ion-col size="1.3">{{info.date}}</ion-col>
-        <ion-col size="1.3">
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-body">
+            <span class="h3">Listado de libros</span>
+            <table  class="table table-striped mt-5">
+                <thead>
+                  <tr>
+                    <th>Titulo</th>
+                    <th>Autor</th>
+                    <th>Descripcion</th>
+                    <th>Calificacion</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let libro of data">
+                    <td>{{ libro.titulo }}</td>
+                    <td>{{ libro.autor }}</td>
+                    <td>{{ libro.descripcion }}</td>
+                    <td>{{ libro.precio }}</td>
+                    <td>
+                      <button (click)="deletebook(libro)" size="small"type="button" class="btn btn-outline-danger mt-3">Eliminar</button>
+                    </td>
+                    <td>
+                      <button type="button" class="btn btn-outline-primary mt-3" size="small" [routerLink]="['/create-reg/', libro.id]">Actualizar</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+    </div>
+</div>
 
-
-            <ion-button color="danger" (click)="deleteInfo(info)" size="small">Eliminar</ion-button>
-
-
-
-
-
-
-
-
-
-
-        </ion-col>
-
-    </ion-row>
-
-</ion-grid>
-
-</ion-content>

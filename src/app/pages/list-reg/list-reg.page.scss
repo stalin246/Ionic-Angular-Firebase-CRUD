@@ -1,17 +1,33 @@
 ion-content{
-    --background: url(../../../assets/backgr/xiaomi-mi-cc9-wall-gizmochina-163.jpg) 0 0/100% 100% no-repeat;
+    --background: url(/src/assets/backgr/xiaomi-mi-cc9-wall-gizmochina-163.jpg) 0 0/100% 100% no-repeat;
 
 }
-ion-col {
-    background-color: #fdfd96;
-    border: solid 1px rgb(35, 77, 170);
-    color: black;
-    text-align: center;
-    
-}
 
-#fondo{
 
-    background-color: #77dd77;
-    font-weight:  bolder;
-}
+.contenido{
+	height: 640px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+  }
+  .form {
+	top: 50px;
+	width: 300px;
+	
+  }
+  div.avatar {
+	  /* cambia estos dos valores para definir el tamaño de tu círculo */
+	  height: 200px;
+	  width: 200px;
+	  /* los siguientes valores son independientes del tamaño del círculo */
+	  background-repeat: no-repeat;
+	  background-position: 50%;
+	  border-radius: 50%;
+	  background-size: 100% auto;
+	  background-color: white;
+  }
+
+
+
+

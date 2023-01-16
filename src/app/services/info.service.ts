@@ -5,8 +5,9 @@ import { getDownloadURL, ref, Storage, uploadString } from '@angular/fire/storag
 import { AlertController } from '@ionic/angular';
 import { Observable } from 'rxjs';
 import Info from '../interfaces/infor.interface';
-
+import libro from '../interfaces/test.interface';
 import { Photo } from '@capacitor/camera';
+import { updateDoc } from 'firebase/firestore';
 
 
 @Injectable({
@@ -39,23 +40,47 @@ addInfo (info: Info, cameraFile: Photo ) {
 
 
   }
+  addbook (libro: libro){
+    const bookref= collection(this.firestore,"libro")
+    return addDoc(bookref, libro);
+    
+  }
 
-  getInfo(): Observable<any> {
+  
+  getbook(): Observable<any> {
 
-  const user = this.auth.currentUser;
-  const userInfoRef = collection(this.firestore, `info`);
-  return collectionData(userInfoRef, { idField: 'id' }) as Observable<Info[]>;
+    const user = this.auth.currentUser;
+    const bookref = collection(this.firestore, `libro`);
+    return collectionData(bookref, { idField: 'id' }) as Observable<Info[]>;
+  
+  
+    }
 
+  deletebook(libro: libro) {
+      const bookref = doc(this.firestore, `libro/${libro.id}`);
+      return deleteDoc(bookref);
+  }
 
+  updatebook(id: string, libro: any) {
+    const libroRef = doc(this.firestore, `info/${id}`);
+    return updateDoc(libroRef, libro);
+  
+  
+  }
+  
+  
+  idInfo(libro: libro) {
+    const libroRef = doc(this.firestore, `libro/${libro.id}`);
+    
+    return libroRef;
   }
 
 
-  deleteInfo(info: Info) {
-      const placeinfoRef = doc(this.firestore, `info/${info.id}`);
-      return deleteDoc(placeinfoRef);
-  }
-
-
+  
+  // getbookfire(libro: libro) { 
+  //   let idbook = libro.id;
+  //   this.firestore= this.firestore.doc
+  // }
 
 }
 

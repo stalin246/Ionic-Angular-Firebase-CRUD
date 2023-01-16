@@ -1,12 +1,12 @@
-import { doc } from '@angular/fire/firestore';
+
 import { InfoService } from '../../services/info.service';
 import { Component, OnInit } from '@angular/core';
-import Info from '../../interfaces/infor.interface';
-import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
+
 import { AlertController } from '@ionic/angular';
 import { Router } from '@angular/router';
+import libro from '../../interfaces/test.interface';
 
-
+import { AuthService } from 'src/app/services/auth.service';
 
 
 @Component({
@@ -16,58 +16,40 @@ import { Router } from '@angular/router';
 })
 export class ListRegPage implements OnInit {
 
-data:Info[] = [];
+data:libro[] = [];
   loadingController: any;
-  constructor(private infoService:InfoService, private alertController: AlertController, private router: Router ) { }
+  constructor(private infoService:InfoService, private alertController: AlertController, private router: Router,private authService: AuthService, ) { }
 
   ngOnInit(): void{
-    this.getInfo();
+    this.getbook();
 
 
     }
 
 
-    getInfo(){
-      this.infoService.getInfo().subscribe(infor=> {
-        console.log(infor.name);
-        this.data = infor;
+    getbook(){
+      this.infoService.getbook().subscribe(libro=> {
+        console.log(libro.name);
+        this.data = libro;
 
       }
       );
     }
 
 
-    async deleteInfo(info: Info) {
-      const alert = await this.alertController.create({
-        cssClass: 'my-custom-class',
-        header: 'Alerta',
-        message: '<strong>Desea eliminar el registro?</strong>',
-        buttons: [
-          {
-            text: 'Cancel',
-            role: 'cancel',
-            cssClass: 'secondary',
-            handler: (blah) => {
-              console.log('Confirm Cancel: blah');
-            }
-          }, {
-            text: 'Si',
-            handler: () => {
-              this.infoService.deleteInfo(info);
-              console.log('Confirmar');
-            }
-          }
-
-        ]
-      });
-
-      await alert.present();
+    async deletebook(libro: libro) {
+      const response = await this.infoService.deletebook(libro);
+    
 
     }
 
-    async nuevoRegistro() {
-      this.router.navigate (['/create-reg']);
+  
+
+    async logout() {
+      await this.authService.logout();
+      this.router.navigateByUrl('/', { replaceUrl: true });
     }
+
 
 
 

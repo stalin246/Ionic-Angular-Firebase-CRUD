@@ -4,13 +4,15 @@
 
 export const environment = {
   firebase: {
-    apiKey: "AIzaSyDgVxV9_0ecn97foQtCGQUS015-1F7bliQ",
-    authDomain: "censo-dc092.firebaseapp.com",
-    projectId: "censo-dc092",
-    storageBucket: "censo-dc092.appspot.com",
-    messagingSenderId: "863222941725",
-    appId: "1:863222941725:web:30d778c45f8fb636375ef4",
-    measurementId: "G-7G5TPP9HPN"
+    projectId: 'crud-45925',
+    appId: '1:226537253096:web:bd3b66f3e75cae495b015d',
+    databaseURL: 'https://crud-45925-default-rtdb.firebaseio.com',
+    storageBucket: 'crud-45925.appspot.com',
+    locationId: 'us-central',
+    apiKey: 'AIzaSyBBNcxm5FzWGIPn8Io6N8JVEhKeXSPM4PM',
+    authDomain: 'crud-45925.firebaseapp.com',
+    messagingSenderId: '226537253096',
+    measurementId: 'G-Z7W1Z3NC6W',
   },
   production: false,
   mapskey: "AIzaSyDvlFYsuoV0T64Nt4yEi0aPVP1QjLDVsvU"

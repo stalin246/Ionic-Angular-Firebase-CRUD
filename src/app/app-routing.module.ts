@@ -8,11 +8,16 @@ const redirectLoggedInToHome = () => redirectLoggedInTo(['create-reg']);
 const routes: Routes = [
 	{
 		path: '',
-		loadChildren: () => import('./login/login.module').then((m) => m.LoginPageModule),
+		loadChildren: () => import('./pages/login/login.module').then((m) => m.LoginPageModule),
 		...canActivate(redirectLoggedInToHome)
 	},
 	{
 		path: 'create-reg',
+		loadChildren: () => import('./pages/create-reg/create-reg.module').then((m) => m.CreateRegPageModule),
+		...canActivate(redirectUnauthorizedToLogin)
+	},
+	{
+		path: 'create-reg/:id',
 		loadChildren: () => import('./pages/create-reg/create-reg.module').then((m) => m.CreateRegPageModule),
 		...canActivate(redirectUnauthorizedToLogin)
 	},
@@ -25,7 +30,7 @@ const routes: Routes = [
 		path: '**',
 		redirectTo: '',
 		pathMatch: 'full'
-	},
+	}
   
   
 ];

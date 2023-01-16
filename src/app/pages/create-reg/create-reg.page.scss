@@ -1,7 +1,7 @@
-ion-content{
-    --background: url(../../../assets/backgr/xiaomi-mi-cc9-wall-gizmochina-163.jpg) 0 0/100% 100% no-repeat;
+// ion-content{
+//     --background: url(../../../assets/backgr/xiaomi-mi-cc9-wall-gizmochina-163.jpg) 0 0/100% 100% no-repeat;
 
-}
+// }
 
 
 ion-avatar {
@@ -43,3 +43,14 @@ ion-avatar {
     background-size: cover;
     background-position: center;
 }
+
+.amber-textarea textarea.md-textarea:focus:not([readonly]) { 
+    border-bottom: 1px solid #ffa000; 
+    box-shadow: 0 1px 0 0 #ffa000; 
+  } 
+  .active-amber-textarea.md-form label.active { 
+    color: #ffa000; 
+  } 
+  .active-amber-textarea.md-form textarea.md-textarea:focus:not([readonly])+label { 
+    color: #ffa000; 
+  }
